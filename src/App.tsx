@@ -1,24 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import {initialData} from './initial_data'
+import {Column} from './Column'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        initialData.columns["column-1"].title
+      }
+      {
+        initialData.columns["column-1"].taskIds.map((cIds)=>(
+          <Column key={initialData.columns["column-1"].id} column={initialData.columns["column-1"].id} tasks={cIds} />
+        ))
+      }
     </div>
   );
 }
